@@ -11,8 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home')
-           ->with('title', '首頁')
-           ->with('hello', '大家好～～');
-});
+Route::get('/', 'HomeController@index');
