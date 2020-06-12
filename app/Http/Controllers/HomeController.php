@@ -14,7 +14,7 @@ class HomeController extends BaseController
         $intercom = DB::table('company')
                     ->where('d_date', '0000-00-00 00:00:00')
                     ->where('stop_flag', '!=', 'Y')
-                    ->orderby('code desc')
+                    ->orderby('code', 'desc')
                     ->select('*')
                     ->get();
 
