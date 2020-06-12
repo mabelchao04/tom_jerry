@@ -21,7 +21,7 @@ class HomeController extends BaseController
                              'hello' => '<油站列表>',
                              'intercom' => $intercom,
                              'i' => 1
-        	                ]);
+                             ]);
     }
 
 }
