@@ -18,8 +18,8 @@ class HomeController extends BaseController
                     ->get();
 
         return View('home', ['title' => '油站列表',
-        	                 'hello' => '<油站列表>',
-        	                 'intercom' => $intercom,
+                             'hello' => '<油站列表>',
+                             'intercom' => $intercom,
                              'i' => 1
         	                ]);
     }
