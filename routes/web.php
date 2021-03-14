@@ -11,19 +11,19 @@
 |
 */
 
-Route::group(['middleware' => 'web'], function () {
 
-    Route::get('/', function () {
-        return view('welcome');
-    })->middleware('guest');
+Route::get('/', 'HomeController@index');
 
-    Route::get('/tasks', 'TaskController@index');
-    Route::post('/task', 'TaskController@store');
-    Route::delete('/task/{task}', 'TaskController@destroy');
+Route::get('/admin/example', array( 'as'=>'admin.home', function(){
 
-    Route::auth();
-});
+    $url = route('admin.home');
 
-Route::get('/gas', 'GasController@index');
+    return 'this url is '.$url;
+}));
 
-Route::get('/home', 'HomeController@index');
+//Route::resource('/post', 'PostsController');
+
+Route::get('/contact', 'PostsController@contact');
+
+Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
+
