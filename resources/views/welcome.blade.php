@@ -70,6 +70,8 @@
                 <div class="top-right links">
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/tasks') }}">Tasks</a>
+                        <a href="{{ url('/gas') }}">GasStation</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
@@ -83,11 +85,11 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a target="_blank" href="https://laravel.com/docs">Documentation</a>
+                    <a target="_blank" href="https://laracasts.com">Laracasts</a>
+                    <a target="_blank" href="https://laravel-news.com">News</a>
+                    <a target="_blank" href="https://forge.laravel.com">Forge</a>
+                    <a target="_blank" href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
         </div>

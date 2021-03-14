@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', 'HomeController@index');
 
 Route::get('/admin/example', array( 'as'=>'admin.home', function(){
@@ -25,3 +26,4 @@ Route::get('/admin/example', array( 'as'=>'admin.home', function(){
 Route::get('/contact', 'PostsController@contact');
 
 Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
+

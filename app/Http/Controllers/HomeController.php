@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use View;
-use DB;
-use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Routing\Controller;
 
-class HomeController extends BaseController 
+class HomeController extends Controller 
 {
 
     public function index()
     {
+
         //$intercom = DB::table('company')
         //            ->where('d_date', '0000-00-00 00:00:00')
         //            ->where('stop_flag', '!=', 'Y')
@@ -24,6 +23,7 @@ class HomeController extends BaseController
         //                     'i' => 1
         //                  ]);
         return 'hello world';
-    }
 
+    }
+    
 }

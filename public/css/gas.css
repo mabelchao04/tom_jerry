@@ -1,0 +1,11 @@
+#table-style {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border: #666666 1px solid;
+  border-collapse: collapse;
+}
+th, td {
+  border: #666666 1px solid;
+  border-collapse: collapse;
+}
