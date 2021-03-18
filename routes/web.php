@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', 'HomeController@index');
 
 Route::get('/admin/example', array( 'as'=>'admin.home', function(){
