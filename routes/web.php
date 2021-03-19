@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/', 'HomeController@index');
+Route::get('/', '/app/Http/Controllers/HomeController@index');
 
 Route::get('/admin/example', array( 'as'=>'admin.home', function(){
 
@@ -21,8 +21,6 @@ Route::get('/admin/example', array( 'as'=>'admin.home', function(){
     return 'this url is '.$url;
 }));
 
-//Route::resource('/post', 'PostsController');
+Route::get('/contact', '/app/Http/Controllers/PostsController@contact');
 
-Route::get('/contact', 'PostsController@contact');
-
-Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
+Route::get('/post/{id}/{name}/{password}', '/app/Http/Controllers/PostsController@show_post');
