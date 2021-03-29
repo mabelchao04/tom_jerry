@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Animal;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-//use Symfony\Component\HttpFoundation\Response;
+//use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 class AnimalController extends Controller
 {
@@ -84,6 +84,7 @@ class AnimalController extends Controller
      */
     public function destroy(Animal $animal)
     {
-        //
+        $animal->delete();
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

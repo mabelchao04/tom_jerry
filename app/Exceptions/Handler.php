@@ -2,10 +2,11 @@
 
 namespace App\Exceptions;
 
-//use Exception;
 Use Throwable;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpFoundation\Response;
 
 class Handler extends ExceptionHandler
 {
@@ -28,10 +29,9 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $exception
+     * @param  \Throwable  $exception
      * @return void
      */
-    //public function report(Exception $exception)
     public function report(Throwable $exception)
     {
         parent::report($exception);
@@ -41,12 +41,24 @@ class Handler extends ExceptionHandler
      * Render an exception into an HTTP response.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param  \Throwable  $exception
      * @return \Illuminate\Http\Response
      */
-    //public function render($request, Exception $exception)
     public function render($request, Throwable $exception)
     {
+        //dd($exception);
+        
+        if ($request->$expectsJson()){
+            if ($exception instanceof ModelNotFoundException){
+                return response()->json(
+                    [
+                        'error' => '找不到資源'
+                    ],
+                    Response::HTTP_NOT_FOUND
+                );
+            }
+        }
+
         return parent::render($request, $exception);
     }
 
