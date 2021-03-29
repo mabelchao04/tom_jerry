@@ -17,12 +17,8 @@ class HomeController extends Controller
         //            ->select('*')
         //            ->get();
 
-        //return View('home', ['title' => '油站列表',
-        //                     'hello' => '<油站列表>',
-        //                     'intercom' => $intercom,
-        //                     'i' => 1
-        //                  ]);
-        return 'hello world';
+        return View('home');
+        //return 'hello world';
 
     }
     
