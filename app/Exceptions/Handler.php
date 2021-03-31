@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
     {
         //dd($exception);
         
-        if ($request->$expectsJson()){
+        if ($request->expectsJson()){
             if ($exception instanceof ModelNotFoundException){
                 return response()->json(
                     [
