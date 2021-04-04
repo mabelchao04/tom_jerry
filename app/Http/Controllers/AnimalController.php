@@ -15,7 +15,11 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        //
+        $animals = Animal::get();
+        return response(
+            ['data' => $animals],
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -49,7 +53,7 @@ class AnimalController extends Controller
      */
     public function show(Animal $animal)
     {
-        //
+        return response($animal, Response::HTTP_OK);
     }
 
     /**
@@ -72,7 +76,8 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $animal->update($request->all());
+        return response($animal, Response::HTTP_OK);
     }
 
     /**
