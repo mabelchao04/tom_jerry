@@ -13,13 +13,25 @@ class AnimalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $animals = Animal::get();
-        return response(
-            ['data' => $animals],
-            Response::HTTP_OK
-        );
+        $limit = $request->limit ?? 10;
+
+        $query = Animal::query();
+
+        if(isset($request->filters)){
+            $filters = explode(',',$request->filters);
+            foreach($filters as $key => $filter){
+                list($key, $value) = explode(':',$filter);
+                $query->where($key, 'like', "%$value%");
+            }
+        }
+
+        $animals = $query->orderBy('id', 'desc')
+                ->paginate($limit)
+                ->appends($request->query());
+
+        return response($animals, Response::HTTP_OK);
     }
 
     /**

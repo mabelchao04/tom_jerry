@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
         Schema::disableForeignKeyConstraints();
-        Animal::truncate();
+
         User::truncate();
+        Animal::truncate();
 
         User::factory(5)->create();
-
         Animal::factory(10000)->create();
 
         Schema::enableForeignKeyConstraints();
