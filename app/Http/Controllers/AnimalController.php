@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Animal;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Cache;
 
 class AnimalController extends Controller
 {
@@ -15,6 +16,16 @@ class AnimalController extends Controller
      */
     public function index(Request $request)
     {
+        $url = $request->url;
+        $queryParams = $request->query();
+        ksort($queryParams);
+        $queryString = http_build_query($queryParams);
+        $fullUrl = "{$url}?{$queryString}";
+
+        if(Cache::has($fullUrl)){
+            return Cache::get($fullUrl);
+        }
+
         $limit = $request->limit ?? 10;
 
         $query = Animal::query();
@@ -27,8 +38,20 @@ class AnimalController extends Controller
             }
         }
 
-        $animals = $query->orderBy('id', 'desc')
-                ->paginate($limit)
+        if(isset($request->sorts)){
+            $sorts = explode(',',$request->sorts);
+            foreach($sorts as $key => $sort){
+                list($key, $value) = explode(':',$sort);
+                if($value == 'desc' || $value == 'asc'){
+                    $query->orderBy($key, $value);
+                }
+            }
+        }
+        else{
+            $query->orderBy('id', 'desc');
+        }
+
+        $animals = $query->paginate($limit)
                 ->appends($request->query());
 
         return response($animals, Response::HTTP_OK);
@@ -52,6 +75,18 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'type_id' => 'nullable|integer',
+            'name' => 'required|string|max:255',
+            'birthday' => 'nullable|date',
+            'area' => 'nullable|string|max:255',
+            'fix' => 'required|boolean',
+            'description' => 'nullable',
+            'personality' => 'nullable'
+        ]);
+
+        $request['user_id'] = '1';
+
         $animal = Animal::create($request->all());
         $animal = $animal->refresh();
         return response($animal, Response::HTTP_CREATED);
