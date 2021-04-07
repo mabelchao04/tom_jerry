@@ -45493,6 +45493,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45523,20 +45538,84 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return res.json();
             }).then(function (res) {
                 _this.animals = res.data;
-                vm.makePagination(res.meta, res.links);
+                vm.makePagination(res);
             }).catch(function (err) {
                 return console.log(err);
             });
         },
-        makePagination: function makePagination(meta, links) {
+        makePagination: function makePagination(res) {
             var pagination = {
-                current_page: meta.current_page,
-                last_page: meta.last_page,
-                next_page_url: links.next,
-                prev_page_url: links.prev
+                current_page: res.current_page,
+                last_page: res.last_page,
+                next_page_url: res.next_page_url,
+                prev_page_url: res.prev_page_url
             };
 
             this.pagination = pagination;
+        },
+        deleteAnimal: function deleteAnimal(id) {
+            var _this2 = this;
+
+            if (confirm('Are You Sure?')) {
+                fetch('api/animals/' + id, {
+                    method: 'delete'
+                }).then(function (res) {
+                    return res.json();
+                }).then(function (data) {
+                    alert('Animal Removed!');
+                    _this2.fetchAnimals();
+                }).catch(function (err) {
+                    return console.log(err);
+                });
+            }
+        },
+        addAnimal: function addAnimal() {
+            var _this3 = this;
+
+            if (this.edit === false) {
+                //Add
+                fetch('api/animals', {
+                    method: 'post',
+                    body: JSON.stringify(this.animal),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).then(function (res) {
+                    return res.json();
+                }).then(function (data) {
+                    _this3.animal.name = '';
+                    _this3.animal.description = '';
+                    alert('Animal Added!');
+                    _this3.fetchAnimals();
+                }).catch(function (err) {
+                    return console.log(err);
+                });
+            } else {
+                //Update
+                fetch('api/animals/' + this.animal.id, {
+                    method: 'put',
+                    body: JSON.stringify(this.animal),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).then(function (res) {
+                    return res.json();
+                }).then(function (data) {
+                    _this3.animal.name = '';
+                    _this3.animal.description = '';
+                    alert('Animal Updated!');
+                    _this3.fetchAnimals();
+                }).catch(function (err) {
+                    return console.log(err);
+                });
+            }
+        },
+        editAnimal: function editAnimal(animal) {
+            this.edit = true;
+            this.animal.id = animal.id;
+            this.animal.animal_id = animal.id;
+            this.animal.name = animal.name;
+            this.animal.description = animal.description;
         }
     }
 });
@@ -45553,6 +45632,77 @@ var render = function() {
     "div",
     [
       _c("h2", [_vm._v("Animals")]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "mb-2",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.addAnimal($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.animal.name,
+                  expression: "animal.name"
+                }
+              ],
+              staticClass: "form-control mb-2",
+              attrs: { type: "text", placeholder: "Title" },
+              domProps: { value: _vm.animal.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.animal, "name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.animal.description,
+                  expression: "animal.description"
+                }
+              ],
+              staticClass: "form-control mb-2",
+              attrs: { type: "text", placeholder: "Description" },
+              domProps: { value: _vm.animal.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.animal, "description", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-light btn-block",
+              attrs: { type: "submit" }
+            },
+            [_vm._v("Save")]
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
         _c("ul", { staticClass: "pagination" }, [
@@ -45578,6 +45728,21 @@ var render = function() {
               )
             ]
           ),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item disabled" }, [
+            _c(
+              "a",
+              { staticClass: "page-link text-dark", attrs: { href: "#" } },
+              [
+                _vm._v(
+                  "Page " +
+                    _vm._s(_vm.pagination.current_page) +
+                    " of " +
+                    _vm._s(_vm.pagination.last_page)
+                )
+              ]
+            )
+          ]),
           _vm._v(" "),
           _c(
             "li",
@@ -45611,7 +45776,35 @@ var render = function() {
           [
             _c("h3", [_vm._v(_vm._s(animal.name))]),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(animal.description))])
+            _c("p", [_vm._v(_vm._s(animal.description))]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-warning mb-2",
+                on: {
+                  click: function($event) {
+                    return _vm.editAnimal(animal)
+                  }
+                }
+              },
+              [_vm._v("EDIT")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger",
+                on: {
+                  click: function($event) {
+                    return _vm.deleteAnimal(animal.id)
+                  }
+                }
+              },
+              [_vm._v("DELETE")]
+            )
           ]
         )
       })
