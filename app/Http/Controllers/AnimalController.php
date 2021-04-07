@@ -26,7 +26,7 @@ class AnimalController extends Controller
             return Cache::get($fullUrl);
         }
 
-        $limit = $request->limit ?? 10;
+        $limit = $request->limit ?? 5;
 
         $query = Animal::query();
 
