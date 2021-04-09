@@ -17,4 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('animals', AnimalController::class);
+Route::apiResources([
+    'animals' => AnimalController::class,
+    'types' => TypeController::class,
+]);

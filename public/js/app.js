@@ -45782,7 +45782,7 @@ var staticRenderFns = [
       { staticClass: "navbar navbar-expand-sm navbar-dark bg-info mb-2" },
       [
         _c("div", { staticClass: "container" }, [
-          _c("a", { staticClass: "navbar-brank", attrs: { href: "#" } }, [
+          _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
             _vm._v("Larticles")
           ])
         ])
