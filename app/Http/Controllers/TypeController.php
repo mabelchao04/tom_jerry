@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Type;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\Response;

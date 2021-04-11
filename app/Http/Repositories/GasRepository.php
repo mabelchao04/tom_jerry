@@ -2,7 +2,7 @@
 
 namespace App\Http\Repositories;
 
-use App\Gas;
+use App\Models\Gas;
 
 class GasRepository
 {

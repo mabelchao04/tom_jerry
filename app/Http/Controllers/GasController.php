@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 
-use App\Gas;
+use App\Models\Gas;
 use App\Http\Repositories\GasRepository;
 
 class GasController extends Controller 
