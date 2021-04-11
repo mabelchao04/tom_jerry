@@ -13,4 +13,10 @@ class Type extends Model
         'name',
         'sort'
     ];
+
+    public function animals() 
+    {
+        //hasMany(類別名稱, 欄位, 主鍵) 關聯另一個model
+        return hasMany(Animal::class, 'type_id', 'id');
+    }
 }
