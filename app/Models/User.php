@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Task;
+use App\Models\Task;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;

@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Animal;
-use App\User;
+use App\Models\Animal;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 

@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Animal;
-use App\User;
+use App\Models\Animal;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
