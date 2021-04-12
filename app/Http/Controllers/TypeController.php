@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Type;
+use App\Http\Resources\TypeCollection;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,8 +17,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Type::get();
-        return response(['data'=> $types], Response::HTTP_OK);
+        $types = Type::select('id', 'name', 'sort')->get();
+        //return response(['data'=> $types], Response::HTTP_OK);
+        return new TypeCollection($types);
     }
 
     /**
