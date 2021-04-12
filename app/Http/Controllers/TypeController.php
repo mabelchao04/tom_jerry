@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Type;
 use App\Http\Resources\TypeCollection;
+use App\Http\Resources\TypeResource;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\Response;
@@ -56,7 +57,8 @@ class TypeController extends Controller
         //寫入資料庫
         $type = Type::create($request->all());
 
-        return response(['data' => $type], Response::HTTP_CREATED);
+        //return response(['data' => $type], Response::HTTP_CREATED);
+        return new TypeResource($type);
     }
 
     /**
@@ -67,7 +69,8 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        return response(['data' => $type], Response::HTTP_OK);
+        //return response(['data' => $type], Response::HTTP_OK);
+        return new TypeResource($type);
     }
 
     /**
@@ -101,7 +104,8 @@ class TypeController extends Controller
 
         $type->update($request->all());
 
-        return response(['data' => $type], Response::HTTP_OK);
+        //return response(['data' => $type], Response::HTTP_OK);
+        return new TypeResource($type);
     }
 
     /**
