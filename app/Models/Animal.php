@@ -32,8 +32,8 @@ class Animal extends Model
 
     public function type() 
     {
-        //belongsTo(類別名稱, 欄位, 主鍵)
-        return $this->belongsTo(Type::class);
+        //belongsTo(類別名稱, 參照欄位, 主鍵)
+        return $this->belongsTo('App\Models\Type');
     }
 
     public function getAgeAttribute() 

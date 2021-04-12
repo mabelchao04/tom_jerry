@@ -16,7 +16,7 @@ class Type extends Model
 
     public function animals() 
     {
-        //hasMany(類別名稱, 欄位, 主鍵) 關聯另一個model
-        return hasMany(Animal::class, 'type_id', 'id');
+        //hasMany(類別名稱, 參照欄位, 主鍵) 關聯另一個model
+        return hasMany('App\Models\Animal', 'type_id', 'id');
     }
 }

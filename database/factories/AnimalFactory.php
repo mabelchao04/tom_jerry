@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Animal;
 use App\Models\User;
+use App\Models\Type;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -25,7 +26,7 @@ class AnimalFactory extends Factory
     {
         return [
             //numberBetween隨機產生範圍1到3之間的整數
-            'type_id' => $this->faker->numberBetween(1,3),
+            'type_id' => Type::all()->random()->id,
             'name' => $this->faker->name,
             'birthday' => $this->faker->date(),
             'area' => $this->faker->city,
