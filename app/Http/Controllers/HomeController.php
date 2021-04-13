@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller;
+use Illuminate\Http\Request;
 
-class HomeController extends Controller 
+class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
-
-        //$intercom = DB::table('company')
-        //            ->where('d_date', '0000-00-00 00:00:00')
-        //            ->where('stop_flag', '!=', 'Y')
-        //            ->orderby('code', 'desc')
-        //            ->select('*')
-        //            ->get();
-
-        return View('home');
-        //return 'hello world';
-
+        return view('home');
     }
-    
 }
