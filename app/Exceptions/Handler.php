@@ -3,11 +3,11 @@
 namespace App\Exceptions;
 
 Use Throwable;
+use App\Traits\ApiResponseTrait; //引用特徵
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpFoundation\Response;
-use App\Traits\ApiResponseTrait; //引用特徵
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
@@ -91,9 +91,16 @@ class Handler extends ExceptionHandler
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->expectsJson()) {
-            return response()->json(['error' => 'Unauthenticated.'], 401);
+            //return response()->json(['error' => 'Unauthenticated.'], 401);
+            return $this->errorResponse(
+                $exception->getMessage(),
+                Response::HTTP_UNAUTHORIZED
+            );
         }
-
-        return redirect()->guest(route('login'));
+        else {
+            //客戶端非請求JSON格式轉回登入畫面
+            return redirect()->guest($exception->redirectTo() ?? route('login'));
+        }
+        
     }
 }
