@@ -39,4 +39,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+
+    public function animals()
+    {
+        return $this->hasMany('App\Models\Animal', 'user_id', 'id');
+    }
 }

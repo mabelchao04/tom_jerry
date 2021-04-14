@@ -27,13 +27,18 @@ class Animal extends Model
         'fix',
         'description',
         'personality',
-        'user_id',
     ];
 
     public function type() 
     {
         //belongsTo(類別名稱, 參照欄位, 主鍵)
         return $this->belongsTo('App\Models\Type');
+    }
+
+    public function user() 
+    {
+        //belongsTo(類別名稱, 參照欄位, 主鍵)
+        return $this->belongsTo('App\Models\User');
     }
 
     public function getAgeAttribute() 
