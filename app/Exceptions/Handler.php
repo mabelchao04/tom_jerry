@@ -5,6 +5,7 @@ namespace App\Exceptions;
 Use Throwable;
 use App\Traits\ApiResponseTrait; //引用特徵
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Auth\Access\AuthorizationExceptoin;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpFoundation\Response;
@@ -74,6 +75,13 @@ class Handler extends ExceptionHandler
                 return $this->errorResponse(
                     $exception->getMessage(), //回傳例外內的訊息
                     Response::HTTP_METHOD_NOT_ALLOWED
+                );
+            }
+            // 4.passport憑證異常
+            if ($exception instanceof AuthorizationException) {
+                return $this->errorResponse(
+                    $exception->getMessage(), //回傳例外內的訊息
+                    Response::HTTP_FORBIDDEN
                 );
             }
         }
