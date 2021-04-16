@@ -41,6 +41,12 @@ class Animal extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany('App\Models\User', 'animal_user_likes')
+                    ->withTimestamps();
+    }
+
     public function getAgeAttribute() 
     {
         $diff = Carbon::now()->diff($this->birthday);

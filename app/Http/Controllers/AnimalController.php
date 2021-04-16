@@ -87,6 +87,8 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Animal::class);
+
         $this->validate($request,[
             'type_id' => 'nullable|exists:types,id',
             'name' => 'required|string|max:255',
@@ -137,6 +139,8 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
+        $this->authorize('update', $animal);
+
         $this->validate($request,[
             'type_id' => 'nullable|integer',
             'name' => 'string|max:255',

@@ -11,8 +11,9 @@ use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
-    use HasApiTokens;
+    use HasApiTokens, HasFactory, Notifiable;
+    const ADMIN_USER = 'admin';
+    const MEMBER_USER = 'member';
 
     /**
      * The attributes that are mass assignable.
@@ -43,5 +44,16 @@ class User extends Authenticatable
     public function animals()
     {
         return $this->hasMany('App\Models\Animal', 'user_id', 'id');
+    }
+
+    public function likes()
+    {
+        return $this->belongsToMany('App\Models\Animal', 'animal_user_likes')
+                    ->withTimestamps();
+    }
+
+    public function isAdmin()
+    {
+        return $this->permission === User::ADMIN_USER;
     }
 }
