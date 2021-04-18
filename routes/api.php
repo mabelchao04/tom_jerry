@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\Animal\AnimalLikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::apiResources([
     'animals' => AnimalController::class,
     'types' => TypeController::class,
 ]);
+
+Route::apiResource('animals.likes', AnimalLikeController::class)->only(['index','store']);

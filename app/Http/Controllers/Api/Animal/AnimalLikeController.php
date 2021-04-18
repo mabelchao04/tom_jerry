@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\Animal;
 
 use App\Models\Animal;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -17,11 +18,22 @@ class AnimalLikeController extends Controller
         $this->middleware('auth:api');
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Animal $animal)
     {
         return $animal->likes()->paginate(10);
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request, Animal $animal)
     {
         $result = $animal->likes()->toggle(auth()->user()->id);
