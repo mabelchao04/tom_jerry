@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\Api\Animal\AnimalLikeController;
 
 /*

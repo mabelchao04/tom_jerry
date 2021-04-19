@@ -102,9 +102,30 @@ class AnimalController extends Controller
         //$request['user_id'] = '1';
 
         //$animal = Animal::create($request->all());
-        $animal = auth()->user()->animals()->create($request->all());
-        $animal = $animal->refresh();
-        return response($animal, Response::HTTP_CREATED);
+        //$animal = auth()->user()->animals()->create($request->all());
+        //$animal = $animal->refresh();
+        //return response($animal, Response::HTTP_CREATED);
+
+        try {
+            //開始資料庫交易
+            DB::beginTransaction();
+            //登入會員新增動物，建立會員與動物的關係，返回動物物件
+            $animal = auth()->user()->animals()->create($request->all());
+            //刷新動物物件(從資料庫讀取完整欄位資料)
+            $animal = $animal->refresh();
+            //建立動物資源同時將動物加到我的最愛
+            $animal->likes()->attach(auth()->user()->id);
+            DB::commit();
+            return new AnimalResource($animal);
+        } catch (\Exception $e) {
+            DB::rollback();
+            $errorMessage = 'MESSAGE: '. $e->getMessage();
+            Log::error($errorMessage);
+            return response(
+                ['error' => '程式異常'],
+                Response::HTTP_INTERNAL_SERVER_ERROR
+            );
+        }
     }
 
     /**

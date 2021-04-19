@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,20 +10,8 @@
 |
 */
 
-
-//Route::get('/', 'HomeController@index');
-
-Route::get('/admin/example', array( 'as'=>'admin.home', function(){
-
-    $url = route('admin.home');
-
-    return 'this url is '.$url;
-}));
-
-Route::get('/contact', 'PostsController@contact');
-
-Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/post/{id}/{name}/{password}', [App\Http\Controllers\PostsController::class, 'show_post']);
