@@ -18,17 +18,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-
+        // 取消外鍵約束
         Schema::disableForeignKeyConstraints();
 
-        Type::truncate();
+        Type::truncate(); //清空types資料表 ID歸零
         User::truncate();
         Animal::truncate();
 
         Type::factory(5)->create();
         User::factory(5)->create();
         Animal::factory(10000)->create();
-
+        //開啟外鍵約束
         Schema::enableForeignKeyConstraints();
 
     }

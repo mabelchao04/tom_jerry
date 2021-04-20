@@ -12,3 +12,5 @@ yarn-error.log
 .env
 testkey
 testkey.pub
+*.sqlite
+.env.testing
