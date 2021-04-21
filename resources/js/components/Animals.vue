@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h2>Animals</h2>
+    <div class="container">
+        <h2>Animals Page</h2>
         <form @submit.prevent="addAnimal" class="mb-2">
             <div class="form-group">
                 <input type="text" class="form-control mb-2" placeholder="Title" v-model="animal.name">
