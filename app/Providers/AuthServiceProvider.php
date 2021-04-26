@@ -29,17 +29,17 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        Passport::routes();
+        //Passport::routes();
 
         // access_token 設定核發後15天過期
-        Passport::tokensExpireIn(now()->addDays(15));
+        //Passport::tokensExpireIn(now()->addDays(15));
 
         // refresh_token 設定核發後30天過期
-        Passport::refreshTokensExpireIn(now()->addDays(30));
+        //Passport::refreshTokensExpireIn(now()->addDays(30));
 
-        Passport::tokensCan([
-            'create-animals' => '建立動物資訊',
-            'user-info' => '使用者資訊'
-        ]);
+        //Passport::tokensCan([
+        //    'create-animals' => '建立動物資訊',
+        //    'user-info' => '使用者資訊'
+        //]);
     }
 }

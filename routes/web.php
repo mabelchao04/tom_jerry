@@ -12,8 +12,8 @@
 
 Auth::routes();
 
-Route::get('/{any}', [App\Http\Controllers\HomeController::class, 'index'])->where('any', '.*');
+//Route::get('/{any}', [App\Http\Controllers\HomeController::class, 'index'])->where('any', '.*');
 
-//Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
-//Route::get('/post/{id}/{name}/{password}', [App\Http\Controllers\PostsController::class, 'show_post']);
+Route::get('/post/{id}/{name}/{password}', [App\Http\Controllers\PostsController::class, 'show_post']);

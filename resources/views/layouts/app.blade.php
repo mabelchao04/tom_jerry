@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script>window.Laravel = { csrfToken: '{{ csrf_token() }}' }</script>
 
-    <title>{{ config('app.name', 'Tom & Jerry') }}</title>
+    <title>Tom & Jerry</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Tom & Jerry') }}
+                    Tom & Jerry
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -32,14 +32,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <!-- Authentication Links -->
-                        @auth
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="/">Home</router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="/api/animals">Animals</router-link>
-                            </li>
-                        @endauth
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/api/animals">Our animals</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -82,7 +80,6 @@
         </nav>
 
         <main class="py-4">
-            <router-view></router-view>
             @yield('content')
         </main>
     </div>
