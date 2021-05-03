@@ -1,6 +1,6 @@
 /* Header Parallax Element Style*/ 
 .paral {
-    min-height: 600px;
+    min-height: 1000px;
     background-attachment: fixed;
     background-size: cover;
     background-position: 50% 50%;
@@ -22,15 +22,15 @@
 }
 /* Image for Parallax Section */ 
 .paralsec {
-    background-image: url("/images/pexels-pixabay-5.jpg");
+    background-image: url("/images/star-2.jpg");
 }
   
 .paralsec1 {
-    background-image: url("/images/pexels-pixabay-4.jpg");
+    background-image: url("/images/animal-4.jpg");
 }
   
 .paralsec2 {
-    background-image: url("/images/pexels-pixabay-3.jpg");
+    background-image: url("/images/animal-3.jpg");
 }
   
 /* Add more images for more sections */

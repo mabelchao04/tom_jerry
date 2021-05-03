@@ -1,13 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- First Parallax Section -->
-    <div class="jumbotron paral paralsec">
-        <h1 class="display-3">Here is a heading 1</h1>
-        <p class="lead">Here is a short description 1</p>
-        <p class="lead">
-            <a class="btn btn-info btn-lg btn-md" href="#" role="button">Here is a button 1</a>
-        </p>
+    <link href="css/parallax.css" rel="stylesheet">
+    <!-- First Parallax Section -->
+    <div class="jumbotron jumbotron-fluid paral paralsec">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/images/animal-5.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Card content</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/images/animal-5.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Card content</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/images/animal-5.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Card content</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Second Parallax Section -->
