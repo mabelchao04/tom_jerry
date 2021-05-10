@@ -7,18 +7,18 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse ml-4" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <!-- Authentication Links -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/news">最新消息</a>
+                    <a class="nav-link font-weight-bold text-light" href="/news">LASTEsT NeWS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">關於我們</a>
+                    <a class="nav-link font-weight-bold text-light" href="/about">ABOuT Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/api/animals">動物之家</a>
+                    <a class="nav-link font-weight-bold text-light" href="/api/animals">ANIMAlS</a>
                 </li>
             </ul>
 
@@ -28,13 +28,13 @@
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link font-weight-bold text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                     @endif
                             
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link font-weight-bold text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else

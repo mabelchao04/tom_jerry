@@ -2,8 +2,14 @@
 
 @section('content')
     <link href="css/parallax.css" rel="stylesheet">
+
     <!-- First Parallax Section -->
-    <div class="jumbotron jumbotron-fluid paral paralsec">
+    <div class="jumbotron jumbotron-fluid paral paralsec" style="padding:0;">
+        @include('includes.slider')
+    </div>
+
+    <!-- Second Parallax Section -->
+    <div class="jumbotron paral paralsec1">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -38,15 +44,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Second Parallax Section -->
-    <div class="jumbotron paral paralsec1">
-        <h1 class="display-3">Here is a heading 2</h1>
-        <p class="lead">Here is a short description 2</p>
-        <p class="lead">
-            <a class="btn btn-warning btn-lg btn-md" href="widgets.html" role="button">Here is a button 2</a>
-        </p>
     </div>
 
     <!-- Third Parallax Section -->
