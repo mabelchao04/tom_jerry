@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __construct() 
     {
-        $this->midleware('auth');
+        $this->middleware('auth');
     }
 
     public function modifyUser() 
@@ -57,7 +57,7 @@ class UserController extends Controller
             if ($data['password-new'] === $data['password-conf'])
             {
                 $update_data = [
-                    'password' => Hash::make($data['password-new']);
+                    'password' => Hash::make($data['password-new']),
                 ];
                 $user->update($update_data);
                 return view('auth.modify-pwd', ['hint' => '1']);

@@ -16,17 +16,17 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/init.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="wrapper">
         @include('includes.navbar')
-
         <main>
             @yield('content')
         </main>
-
-        @include('includes.footer')
     </div>
+    @include('includes.footer')
+
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

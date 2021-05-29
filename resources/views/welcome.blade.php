@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="css/home.css" rel="stylesheet">
+<link href="css/welcome.css" rel="stylesheet">
 <div class="container-fluid">
     <!-- 廣告大屏幕 -->
     <div class="row">
