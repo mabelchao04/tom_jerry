@@ -3,9 +3,8 @@ html, body {
     margin: 0;
 }
 .wrapper {
-    min-height: calc(100% - 100px); /*減去footer高度*/
+    min-height: calc(100% - 50px); /*減去footer高度*/
 }
 .footer {
-    height: 100px; /*設定footer本身高度*/
-    background-color: yellow;
+    height: 50px; /*設定footer本身高度*/
 }

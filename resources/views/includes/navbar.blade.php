@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            Tom & Jerry
+            <h2>Tom & Jerry</h2>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -13,42 +13,42 @@
                 <!-- Authentication Links -->
                 <li class="nav-item mr-4">
                     <div class="dropdown">
-                        <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="/about" id="dropdownAbout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">關於湯姆與傑利</a>
+                        <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownAbout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">COMPANY </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownAbout">
-                            <a class="dropdown-item" href="#">理念願景</a>
-                            <a class="dropdown-item" href="#">營運據點</a>
+                            <a class="dropdown-item" href="/about">About Us</a>
+                            <a class="dropdown-item" href="#">Locations</a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item mr-4">
                     <div class="dropdown">
-                        <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="/api/animals" id="dropdownAnimal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">毛小孩專區</a>
+                        <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownAnimal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FURKIDS </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownAnimal">
-                            <a class="dropdown-item" href="#">走失協尋</a>
-                            <a class="dropdown-item" href="#">領　　養</a>
-                            <a class="dropdown-item" href="#">認　　養</a>
-                            <a class="dropdown-item" href="#">寵物送養</a>
-                            <a class="dropdown-item" href="#">寵物送別</a>
-                            <a class="dropdown-item" href="#">動物醫院</a>
+                            <a class="dropdown-item" href="#">Lost and found</a>
+                            <a class="dropdown-item" href="#">Adopt animals</a>
+                            <a class="dropdown-item" href="#">Animal friendly promote</a>
+                            <a class="dropdown-item" href="#">Medical service</a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item mr-4">
                     <div class="dropdown">
-                        <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="/csr" id="dropdownCsr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">企業社會責任</a>
+                        <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownCsr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VOLUNTEER </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownCsr">
-                            <a class="dropdown-item" href="#">永續策略</a>
-                            <a class="dropdown-item" href="#">動物友善社會</a>
+                            <a class="dropdown-item" href="#">What we Need</a>
+                            <a class="dropdown-item" href="#">Volunteer training</a>
+                            <a class="dropdown-item" href="#">Join us</a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item mr-4">
                     <div class="dropdown">
-                        <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="/investors" id="dropdownInvestors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">投資人專區</a>
+                        <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownInvestors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">INVESTORS </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownInvestors">
-                            <a class="dropdown-item" href="#">財務資訊</a>
-                            <a class="dropdown-item" href="#">公司治理</a>
-                            <a class="dropdown-item" href="#">投資人聯絡窗口</a>
+                            <a class="dropdown-item" href="#">Announcement</a>
+                            <a class="dropdown-item" href="#">Financial results</a>
+                            <a class="dropdown-item" href="#">Shareholders meeting</a>
+                            <a class="dropdown-item" href="#">Stock Quotes & Dividends</a>
                         </div>
                     </div>
                 </li>
@@ -60,19 +60,19 @@
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold text-dark" href="{{ route('login') }}">{{ __('登入') }}</a>
+                            <a class="nav-link font-weight-bold text-dark" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
                         </li>
                     @endif
                             
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold text-dark" href="{{ route('register') }}">{{ __('註冊') }}</a>
+                            <a class="nav-link font-weight-bold text-dark" href="{{ route('register') }}">{{ __('REGISTER') }}</a>
                         </li>
                     @endif
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} 您好!
+                            {{ Auth::user()->name }} hello!
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -82,7 +82,7 @@
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ __('登　　出') }}
+                                {{ __('logout') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

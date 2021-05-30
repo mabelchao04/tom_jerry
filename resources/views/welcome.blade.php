@@ -2,6 +2,7 @@
 
 @section('content')
 <link href="css/welcome.css" rel="stylesheet">
+
 <div class="container-fluid">
     <!-- 廣告大屏幕 -->
     <div class="row">
@@ -33,7 +34,7 @@
         </div>
     </div>
     <!-- 各色方塊欄 -->
-    <div class="row">
+    <!--div class="row">
         @for ($i = 0; $i < count($blocks['bg_color']); $i++)
         <div class="col-sm col-md-4" style="padding:0;">
             <div class="{{ $blocks['bg_color'][$i] }} pt-5 pb-5 pl-4 pr-4">
@@ -43,7 +44,7 @@
             </div>
         </div>
         @endfor
-    </div>
+    </div-->
     <!-- 最新消息 -->
     <div class="row mt-5">
         <div class="col" style="padding:0;">
