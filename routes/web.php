@@ -16,7 +16,9 @@ Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name(
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/about', function () { return view('about'); })->name('about');
+Route::get('/about', function () { 
+    return view('about'); 
+})->name('about');
 
 //Route::get('/{any}', [App\Http\Controllers\HomeController::class, 'index'])->where('any', '.*');
 

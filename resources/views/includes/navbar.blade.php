@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm p-4">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <h2>Tom & Jerry</h2>
+            <h3 style="font-family:Comic Sans MS, Comic Sans, cursive;">Tom & Jerry</h3>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@
                         <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownAbout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">COMPANY </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownAbout">
                             <a class="dropdown-item" href="/about">About Us</a>
-                            <a class="dropdown-item" href="#">Locations</a>
+                            <a class="dropdown-item" href="/locations">Locations</a>
                         </div>
                     </div>
                 </li>
@@ -24,10 +24,10 @@
                     <div class="dropdown">
                         <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownAnimal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FURKIDS </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownAnimal">
-                            <a class="dropdown-item" href="#">Lost and found</a>
-                            <a class="dropdown-item" href="#">Adopt animals</a>
-                            <a class="dropdown-item" href="#">Animal friendly promote</a>
-                            <a class="dropdown-item" href="#">Medical service</a>
+                            <a class="dropdown-item" href="/found">found</a>
+                            <a class="dropdown-item" href="/adopt">Adopt Animals</a>
+                            <a class="dropdown-item" href="/promote">Animal Friendly Promote</a>
+                            <a class="dropdown-item" href="/medical">Medical Service</a>
                         </div>
                     </div>
                 </li>
@@ -35,9 +35,9 @@
                     <div class="dropdown">
                         <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownCsr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VOLUNTEER </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownCsr">
-                            <a class="dropdown-item" href="#">What we Need</a>
-                            <a class="dropdown-item" href="#">Volunteer training</a>
-                            <a class="dropdown-item" href="#">Join us</a>
+                            <a class="dropdown-item" href="/need">What we Need</a>
+                            <a class="dropdown-item" href="/train">Volunteer Training</a>
+                            <a class="dropdown-item" href="/join">Join Us</a>
                         </div>
                     </div>
                 </li>
@@ -45,10 +45,10 @@
                     <div class="dropdown">
                         <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownInvestors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">INVESTORS </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownInvestors">
-                            <a class="dropdown-item" href="#">Announcement</a>
-                            <a class="dropdown-item" href="#">Financial results</a>
-                            <a class="dropdown-item" href="#">Shareholders meeting</a>
-                            <a class="dropdown-item" href="#">Stock Quotes & Dividends</a>
+                            <a class="dropdown-item" href="/announcement">Announcement</a>
+                            <a class="dropdown-item" href="/overview">Financial Overview</a>
+                            <a class="dropdown-item" href="/results">Financial Results</a>
+                            <a class="dropdown-item" href="/meeting">Shareholders Meeting</a>
                         </div>
                     </div>
                 </li>
