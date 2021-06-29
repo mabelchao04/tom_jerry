@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm p-4">
+<nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm fixed-top p-4">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <h3 style="font-family:Comic Sans MS, Comic Sans, cursive;">Tom & Jerry</h3>
@@ -24,7 +24,7 @@
                     <div class="dropdown">
                         <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownAnimal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FURKIDS </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownAnimal">
-                            <a class="dropdown-item" href="/found">found</a>
+                            <a class="dropdown-item" href="/found">Found</a>
                             <a class="dropdown-item" href="/adopt">Adopt Animals</a>
                             <a class="dropdown-item" href="/promote">Animal Friendly Promote</a>
                             <a class="dropdown-item" href="/medical">Medical Service</a>

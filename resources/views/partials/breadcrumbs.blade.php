@@ -1,5 +1,5 @@
 @unless ($breadcrumbs->isEmpty())
-<ol class="breadcrumb" style="padding:1.5rem;">
+<ol class="breadcrumb" style="padding:1.5rem;margin-top:6rem;">
     @foreach ($breadcrumbs as $breadcrumb)
 
         @if (!is_null($breadcrumb->url) && !$loop->last)

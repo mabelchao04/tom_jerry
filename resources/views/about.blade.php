@@ -3,10 +3,9 @@
 @section('content')
 {{ Breadcrumbs::render('about') }}
 <div class="container-fluid">
-    <div class="row justify-content-center mt-4 mb-4">
+    <div class="row justify-content-center" style="margin-top:3.5rem;">
         <div class="col-md-8">
-            <sectoin></section>
-            <article></article>
+            <about></about>
         </div>
     </div>
 </div>

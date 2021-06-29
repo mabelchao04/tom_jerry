@@ -43,6 +43,10 @@ Breadcrumbs::for('about', function (BreadcrumbTrail $trail) {
     $trail->push('關於我們', route('about'));
 });
 
+
+
+
+
 // Home > Blog > [Category]
 Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {
     $trail->parent('blog');

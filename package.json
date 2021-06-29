@@ -30,6 +30,7 @@
         "jquery": "^3.6.0",
         "popper.js": "^1.16.1",
         "vue": "^2.6.12",
+        "vue-navigation-bar": "^4.1.0",
         "vue-router": "^3.5.1"
     }
 }
