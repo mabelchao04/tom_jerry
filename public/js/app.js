@@ -1855,10 +1855,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      message: 'hola vue'
+      message: 'hola vue 2.0'
     };
   }
 });
@@ -37529,6 +37531,45 @@ var render = function() {
     _c("div", { staticClass: "card-header" }, [_vm._v("About Page")]),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.message,
+            expression: "message"
+          }
+        ],
+        domProps: { value: _vm.message },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.message = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.message,
+            expression: "message"
+          }
+        ],
+        domProps: { value: _vm.message },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.message = $event.target.value
+          }
+        }
+      }),
       _vm._v("\n        " + _vm._s(_vm.message) + "\n    ")
     ])
   ])

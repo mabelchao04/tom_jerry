@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm fixed-top p-4">
+<nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm p-4">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <h3 style="font-family:Comic Sans MS, Comic Sans, cursive;">Tom & Jerry</h3>
@@ -13,10 +13,10 @@
                 <!-- Authentication Links -->
                 <li class="nav-item mr-4">
                     <div class="dropdown">
-                        <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownAbout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">COMPANY </a>
+                        <a class="nav-link font-weight-bold text-dark dropdown-toggle" href="#" id="dropdownAbout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">關於湯姆</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownAbout">
-                            <a class="dropdown-item" href="/about">About Us</a>
-                            <a class="dropdown-item" href="/locations">Locations</a>
+                            <a class="dropdown-item" href="/about">公司介紹</a>
+                            <a class="dropdown-item" href="/locations">聯絡我們</a>
                         </div>
                     </div>
                 </li>

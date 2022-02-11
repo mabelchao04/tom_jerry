@@ -3,6 +3,8 @@
         <div class="card-header">About Page</div>
 
         <div class="card-body">
+            <input v-model="message" />
+            <textarea v-model="message"></textarea>
             {{ message }}
         </div>
     </div>
@@ -12,7 +14,7 @@
   export default {
         data() {
             return {
-                message: 'hola vue'
+                message: 'hola vue 2.0'
             }
         },
   };
